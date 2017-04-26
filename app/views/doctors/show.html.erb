@@ -25,6 +25,9 @@
   <%= @doctor.phone_number %>
 </p>
 
+
+
+
 <strong>Patients List:</strong><br>
 
 <% @doctor.patients.each do |g| %>
@@ -43,6 +46,11 @@
  
  <%end%>
 <br>
+
+
+
+
+
 
 <%= link_to 'Edit', edit_doctor_path(@doctor) %> |
 <%= link_to 'Back', doctors_path %>
