@@ -1,57 +1,55 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @doctor.first_name %>
-</p>
+<h2>Doctor:<%= @doctor.first_name %></h2>
+<table class='table-striped table table-bordered table-hover'>
+  <thead>
+ <tr  class="success">
+      <th><center>First name</center></th>
+      <th><center>Last name</center></th>
+      <th><center>License number</center></th>
+      <th><center>Email</center></th>
+      <th><center>Phone Number</center></th>
+    </tr>
+  </thead>
+   <tbody>
+    
+      <tr>
+        <td><center><%= @doctor.first_name %></center></td>
+        <td><center><%= @doctor.last_name %></center></td>
+         <td><center><%= @doctor.license_number %></center></td>
+        <td><center><%= @doctor.email %></center></td>
+        <td><center><%= @doctor.phone_number %></center></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @doctor.last_name %>
-</p>
+ <h2>Patients List:</h2><br>
+ <% @doctor.patients.each do |g| %>
 
-<p>
-  <strong>License number:</strong>
-  <%= @doctor.license_number %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @doctor.email %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @doctor.phone_number %>
-</p>
-
-
-
-
-<strong>Patients List:</strong><br>
-
-<% @doctor.patients.each do |g| %>
-
-<strong>First name:</strong>
- <%= g.first_name  %><br>
- 
- <strong>Last name:</strong>
- <%= g.last_name %><br>
- 
- <strong>Email:</strong>
- <%= g.email %><br>
- 
- <strong>Phone:</strong>
- <%= g.phone  %><br>
-
+<table class='table-striped table table-bordered table-hover'>
+  <thead>
+ <tr  class="danger">
+      <th><center>First name</center></th>
+      <th><center>Last name</center></th>
+      <th><center>Email</center></th>
+      <th><center>Phone</center></th>
+     
+    </tr>
+  </thead>
+   <tbody>
+    
+      <tr>
+        <td><center><%= g.first_name %></center></td>
+        <td><center><%= g.last_name %></center></td>
+         <td><center><%= g.email %></center></td>
+        <td><center><%= g.phone %></center></td>
+       
+      </tr>
+  </tbody>
+</table>
  <%end%>
-<br>
 
-
-
-
-
-
-
-<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
-<%= link_to 'Back', doctors_path %>
+<hr>
+<%= link_to 'Edit', edit_doctor_path(@doctor), class:"btn btn-warning" %> |
+<%= link_to 'Back', doctors_path, class:"btn btn-warning" %>
