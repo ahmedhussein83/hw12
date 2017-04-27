@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Doctor:<%= @doctor.first_name %></h2>
+<table class='table-striped table table-bordered table-hover'>
+  <thead>
+ <tr  class="success">
+      <th><center>First name</center></th>
+      <th><center>Last name</center></th>
+      <th><center>License number</center></th>
+      <th><center>Email</center></th>
+      <th><center>Phone Number</center></th>
+    </tr>
+  </thead>
+   <tbody>
+    
+      <tr>
+        <td><center><%= @doctor.first_name %></center></td>
+        <td><center><%= @doctor.last_name %></center></td>
+         <td><center><%= @doctor.license_number %></center></td>
+        <td><center><%= @doctor.email %></center></td>
+        <td><center><%= @doctor.phone_number %></center></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+ <h2>Patients List:</h2><br>
+ <% @doctor.patients.each do |g| %>
+
+<table class='table-striped table table-bordered table-hover'>
+  <thead>
+ <tr  class="danger">
+      <th><center>First name</center></th>
+      <th><center>Last name</center></th>
+      <th><center>Email</center></th>
+      <th><center>Phone</center></th>
+     
+    </tr>
+  </thead>
+   <tbody>
+    
+      <tr>
+        <td><center><%= g.first_name %></center></td>
+        <td><center><%= g.last_name %></center></td>
+         <td><center><%= g.email %></center></td>
+        <td><center><%= g.phone %></center></td>
+       
+      </tr>
+  </tbody>
+</table>
+ <%end%>
+
+<hr>
+<%= link_to 'Edit', edit_doctor_path(@doctor), class:"btn btn-warning" %> |
+<%= link_to 'Back', doctors_path, class:"btn btn-warning" %>
